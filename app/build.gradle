@@ -6,12 +6,12 @@ plugins {
 
 android {
     namespace 'com.example.jettodo'
-    compileSdk 33
+    compileSdk 34
 
     defaultConfig {
         applicationId "com.example.jettodo"
         minSdk 24
-        targetSdk 33
+        targetSdk 34
         versionCode 1
         versionName "1.0"
 
@@ -71,5 +71,7 @@ dependencies {
     kapt "androidx.room:room-compiler:$room_version"
     // For Kotlin use kapt instead of annotationProcessor
     implementation "androidx.room:room-ktx:$room_version"
+
+
     
 }
