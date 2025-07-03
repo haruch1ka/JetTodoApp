@@ -13,5 +13,6 @@ fun EditDialog() {
         title = { Text(text = "タスク新規作成") },
         text = { Text(text = "Edit your task details here") },
         buttons = {},
+        // 実機デバッグでは問題無い
         )
 }
