@@ -12,6 +12,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.jettodo.ui.theme.JetTodoTheme
+import com.example.jettodo.components.EditDialog
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -25,7 +26,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background
                 ) {
-
+                    MainContent()
                 }
             }
         }
@@ -34,13 +35,12 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun MainContent(){
+    EditDialog()
     Scaffold(floatingActionButton = {
         FloatingActionButton(onClick = { /*TODO*/ }) {
             Icon(imageVector = Icons.Default.Add, contentDescription = "Add Task" )
         }
     }) {
-        // Main content goes here
-        Text(text = "Hello, Jetpack Compose!")
 
     }
 }
