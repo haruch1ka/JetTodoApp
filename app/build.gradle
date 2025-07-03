@@ -69,4 +69,5 @@ dependencies {
 
     //To use Kotlin annotation processing (kapt)
     kapt "androidx.room:room-compiler:$room_version"
+    
 }
