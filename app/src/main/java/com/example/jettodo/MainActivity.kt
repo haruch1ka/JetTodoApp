@@ -3,16 +3,16 @@ package com.example.jettodo
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
-import com.example.jettodo.ui.theme.JetTodoTheme
 import com.example.jettodo.components.EditDialog
+import com.example.jettodo.ui.theme.JetTodoTheme
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -34,11 +34,18 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun MainContent(){
-    EditDialog()
+fun MainContent() {
+    val isShowDialog = remember {
+        mutableStateOf(false)
+    }
+    if (isShowDialog.value) {
+        EditDialog(isShowDialog)
+    }
     Scaffold(floatingActionButton = {
-        FloatingActionButton(onClick = { /*TODO*/ }) {
-            Icon(imageVector = Icons.Default.Add, contentDescription = "Add Task" )
+        FloatingActionButton(onClick = {
+            isShowDialog.value = true
+        }) {
+            Icon(imageVector = Icons.Default.Add, contentDescription = "Add Task")
         }
     }) {
 
